@@ -20,12 +20,12 @@ namespace Vntextpatch_GUI
         //两个超链接
         private void refopen_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
         {
-            refopen.LinkVisited = true;
+            myopen.LinkVisited = true;
             Process.Start(new ProcessStartInfo("https://github.com/arcusmaximus/VNTranslationTools") { UseShellExecute = true });
         }
         //net6后超链接“找不到指定的文件”：https://blog.csdn.net/mzl87/article/details/125782534
 
-        private void myopen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void myopen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)//两种写法均可
         {
             refopen.LinkVisited = true;
             Process.Start(new ProcessStartInfo("https://github.com/detached64/VNTextPatch-GUI") { UseShellExecute = true });
