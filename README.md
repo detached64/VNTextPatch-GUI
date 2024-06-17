@@ -5,6 +5,7 @@ A GUI launcher for VNTextPatch.
 
 # Requirement
 vs2022
+
 .net 8
 
 # Reference
