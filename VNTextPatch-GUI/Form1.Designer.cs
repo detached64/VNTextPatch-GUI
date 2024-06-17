@@ -344,7 +344,7 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "VNTextPatch-GUI";
+            Text = "VNTextPatch-GUI 1.0.0";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
