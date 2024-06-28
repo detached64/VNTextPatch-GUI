@@ -80,7 +80,7 @@
             label5.Name = "label5";
             label5.Size = new Size(222, 24);
             label5.TabIndex = 3;
-            label5.Text = "Complied on 2024.06.17";
+            label5.Text = "Compiled on 2024.06.28";
             // 
             // myopen
             // 
