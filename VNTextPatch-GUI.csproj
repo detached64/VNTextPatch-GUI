@@ -9,6 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>VNTextPatchGUI.Program</StartupObject>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
