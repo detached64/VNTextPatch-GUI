@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Binary\" />
+    <Folder Include="external\" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
