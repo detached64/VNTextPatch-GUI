@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /E /I /Y &quot;$(ProjectDir)external&quot; &quot;$(TargetDir)bin&quot;" />
+    <Exec Command="xcopy /E /I /Y &quot;$(ProjectDir)Binary&quot; &quot;$(TargetDir)bin&quot;" />
   </Target>
 
 </Project>
