@@ -22,17 +22,17 @@ namespace VNTextPatchGUI
         {
             InitializeComponent();
             this.AllowDrop = true;
-            this.t1.DragEnter += new DragEventHandler(t1_DragEnter);
-            this.t1.DragDrop += new DragEventHandler(t1_DragDrop);
-            this.t2.DragEnter += new DragEventHandler(t2_DragEnter);
-            this.t2.DragDrop += new DragEventHandler(t2_DragDrop);
-            this.t3.DragEnter += new DragEventHandler(t3_DragEnter);
-            this.t3.DragDrop += new DragEventHandler(t3_DragDrop);
-
+            this.t1.DragEnter += t1_DragEnter;
+            this.t1.DragDrop += t1_DragDrop;
+            this.t2.DragEnter += t2_DragEnter;
+            this.t2.DragDrop += t2_DragDrop;
+            this.t3.DragEnter += t3_DragEnter;
+            this.t3.DragDrop += t3_DragDrop;
         }
+
         private void t1_DragEnter(object? sender, DragEventArgs e)
         {
-            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -43,7 +43,7 @@ namespace VNTextPatchGUI
         }
         private void t1_DragDrop(object? sender, DragEventArgs e)
         {
-            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
             {
                 var data = e.Data.GetData(DataFormats.FileDrop);
                 if (data is string[] fileNames)
@@ -54,7 +54,7 @@ namespace VNTextPatchGUI
         }
         private void t2_DragEnter(object? sender, DragEventArgs e)
         {
-            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -65,7 +65,7 @@ namespace VNTextPatchGUI
         }
         private void t2_DragDrop(object? sender, DragEventArgs e)
         {
-            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
             {
                 var data = e.Data.GetData(DataFormats.FileDrop);
                 if (data is string[] fileNames)
@@ -76,7 +76,7 @@ namespace VNTextPatchGUI
         }
         private void t3_DragEnter(object? sender, DragEventArgs e)
         {
-            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -87,7 +87,7 @@ namespace VNTextPatchGUI
         }
         private void t3_DragDrop(object? sender, DragEventArgs e)
         {
-            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data?.GetDataPresent(DataFormats.FileDrop) == true)
             {
                 var data = e.Data.GetData(DataFormats.FileDrop);
                 if (data is string[] fileNames)
@@ -147,7 +147,7 @@ namespace VNTextPatchGUI
             };
             if (this.jsonbut.Checked)
             {
-                if (this.t1.Text == string.Empty || this.t2.Text == string.Empty)
+                if (this.t1.Text?.Length == 0 || this.t2.Text?.Length == 0)
                 {
                     WriteLog("请确保原文件路径和提取路径完整。");
                     return;
@@ -156,7 +156,7 @@ namespace VNTextPatchGUI
             }
             else if (this.xlsxbut.Checked)
             {
-                if (this.t1.Text == string.Empty || this.t2.Text == string.Empty)
+                if (this.t1.Text?.Length == 0 || this.t2.Text?.Length == 0)
                 {
                     WriteLog("请确保原文件路径完整。");
                     return;
@@ -188,7 +188,7 @@ namespace VNTextPatchGUI
             };
             if (this.jsonbut.Checked)
             {
-                if (this.t1.Text == string.Empty || this.t2.Text == string.Empty || this.t3.Text == string.Empty)
+                if (this.t1.Text?.Length == 0 || this.t2.Text?.Length == 0 || this.t3.Text?.Length == 0)
                 {
                     WriteLog("请确保原文件路径、提取路径和封装路径完整。");
                     return;
@@ -198,7 +198,7 @@ namespace VNTextPatchGUI
             }
             else if (this.xlsxbut.Checked)
             {
-                if (this.t1.Text == string.Empty || this.t3.Text == string.Empty)
+                if (this.t1.Text?.Length == 0 || this.t3.Text?.Length == 0)
                 {
                     txtLog.AppendText("请确保原文件路径和封装路径完整。");
                     txtLog.AppendText(Environment.NewLine);
@@ -254,7 +254,6 @@ namespace VNTextPatchGUI
         {
             MessageBox.Show("某些引擎由于后缀名重复等问题，需手动指定引擎名。\n如果报错extension not supported，请尝试指定引擎名。\n请注意，如果指定了错误的引擎，会导致提取失败。");
         }
-
 
         private void clear1_Click(object sender, EventArgs e)
         {
