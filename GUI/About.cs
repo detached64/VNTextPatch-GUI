@@ -26,6 +26,5 @@ namespace VNTextPatchGUI
             myopen.LinkVisited = true;
             Process.Start(new ProcessStartInfo("https://github.com/detached64/VNTextPatch-GUI") { UseShellExecute = true });
         }
-
     }
 }
