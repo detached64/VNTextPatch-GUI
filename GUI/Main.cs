@@ -15,8 +15,18 @@ namespace VNTextPatchGUI
         private readonly string XlsxName = "script.xlsx";
 
         private readonly string dirpath = AppContext.BaseDirectory;
-        private readonly string filepath = "bin\\VNTextPatch\\VNTextPatch.exe";
-        private readonly string configpath = "config.json";
+        private const string ExePath1 = "bin\\VNTextPatch\\VNTextPatch.exe";
+        private const string ExePath2 = "bin\\VNTextPatch\\VNTextPatch.CLI.exe";
+        private string exePath;
+        private string ExePath
+        {
+            get
+            {
+                exePath = File.Exists(ExePath1) ? ExePath1 : File.Exists(ExePath2) ? ExePath2 : string.Empty;
+                return exePath;
+            }
+        }
+        private const string ConfigPath = "config.json";
 
         public Main()
         {
@@ -99,7 +109,7 @@ namespace VNTextPatchGUI
 
         private void Main_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(filepath))
+            if (string.IsNullOrEmpty(ExePath))
             {
                 MessageBox.Show("未找到VNTextPatch.exe。请在该程序目录下新建bin文件夹，再从https://github.com/arcusmaximus/VNTranslationTools/releases/latest下载最新release，最后将VNTextPatch文件夹复制到bin文件夹。", "Error");
                 Environment.Exit(-1);
@@ -223,7 +233,7 @@ namespace VNTextPatchGUI
             var startInfo = new ProcessStartInfo
             {
                 Arguments = string.Join(" ", parameters),
-                FileName = filepath,
+                FileName = ExePath,
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true,
@@ -277,19 +287,19 @@ namespace VNTextPatchGUI
                 engineindex = this.comboBox1.SelectedIndex
             };
             string jsonOutput = JsonSerializer.Serialize(pa);
-            File.WriteAllText(configpath, jsonOutput);
+            File.WriteAllText(ConfigPath, jsonOutput);
             txtLog.AppendText("保存配置成功！");
             txtLog.AppendText(Environment.NewLine);
         }
 
         private void loadpath_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(configpath))
+            if (!File.Exists(ConfigPath))
             {
                 WriteLog("未找到配置文件！");
                 return;
             }
-            string jsonString = File.ReadAllText(configpath);
+            string jsonString = File.ReadAllText(ConfigPath);
             Global? pa = JsonSerializer.Deserialize<Global>(jsonString);
             if (pa == null)
             {
