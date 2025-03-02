@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using VNTextPatchGUI.Settings;
 
 namespace VNTextPatchGUI
@@ -12,16 +12,16 @@ namespace VNTextPatchGUI
 
         private void About_Load(object sender, EventArgs e)
         {
-            this.caption.Text = "VNTextPatch-GUI " + Global.version;
+            this.caption.Text = "VNTextPatch-GUI " + Global.Version;
         }
 
-        private void refopen_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        private void refopen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             refopen.LinkVisited = true;
             Process.Start(new ProcessStartInfo("https://github.com/arcusmaximus/VNTranslationTools") { UseShellExecute = true });
         }
 
-        private void myopen_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+        private void myopen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             myopen.LinkVisited = true;
             Process.Start(new ProcessStartInfo("https://github.com/detached64/VNTextPatch-GUI") { UseShellExecute = true });

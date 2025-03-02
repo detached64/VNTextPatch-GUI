@@ -1,4 +1,4 @@
-﻿namespace VNTextPatchGUI
+namespace VNTextPatchGUI
 {
     partial class Main
     {
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Input = new Label();
+            lbInput1 = new Label();
             t1 = new TextBox();
-            label3 = new Label();
+            lbInput2 = new Label();
             t2 = new TextBox();
-            label4 = new Label();
+            lbInput3 = new Label();
             t3 = new TextBox();
             choose2 = new Button();
             choose3 = new Button();
@@ -41,10 +41,10 @@
             extract = new Button();
             insert = new Button();
             savepath = new Button();
-            txtCmd = new TextBox();
+            txtOutput = new TextBox();
             comboBox1 = new ComboBox();
             engine = new Label();
-            q = new Button();
+            btQuestion = new Button();
             clear1 = new Button();
             jsonbut = new RadioButton();
             xlsxbut = new RadioButton();
@@ -56,14 +56,14 @@
             about = new Button();
             SuspendLayout();
             // 
-            // Input
+            // lbInput1
             // 
-            Input.AutoSize = true;
-            Input.Location = new Point(53, 36);
-            Input.Name = "Input";
-            Input.Size = new Size(100, 24);
-            Input.TabIndex = 0;
-            Input.Text = "原文件路径";
+            lbInput1.AutoSize = true;
+            lbInput1.Location = new Point(53, 36);
+            lbInput1.Name = "lbInput1";
+            lbInput1.Size = new Size(100, 24);
+            lbInput1.TabIndex = 0;
+            lbInput1.Text = "原文件路径";
             // 
             // t1
             // 
@@ -74,14 +74,14 @@
             t1.Size = new Size(550, 30);
             t1.TabIndex = 1;
             // 
-            // label3
+            // lbInput2
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(71, 87);
-            label3.Name = "label3";
-            label3.Size = new Size(82, 24);
-            label3.TabIndex = 0;
-            label3.Text = "提取路径";
+            lbInput2.AutoSize = true;
+            lbInput2.Location = new Point(71, 87);
+            lbInput2.Name = "lbInput2";
+            lbInput2.Size = new Size(82, 24);
+            lbInput2.TabIndex = 0;
+            lbInput2.Text = "提取路径";
             // 
             // t2
             // 
@@ -92,14 +92,14 @@
             t2.Size = new Size(550, 30);
             t2.TabIndex = 1;
             // 
-            // label4
+            // lbInput3
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(71, 140);
-            label4.Name = "label4";
-            label4.Size = new Size(82, 24);
-            label4.TabIndex = 0;
-            label4.Text = "封装路径";
+            lbInput3.AutoSize = true;
+            lbInput3.Location = new Point(71, 140);
+            lbInput3.Name = "lbInput3";
+            lbInput3.Size = new Size(82, 24);
+            lbInput3.TabIndex = 0;
+            lbInput3.Text = "封装路径";
             // 
             // t3
             // 
@@ -170,19 +170,19 @@
             savepath.UseVisualStyleBackColor = true;
             savepath.Click += savepath_Click;
             // 
-            // txtCmd
+            // txtOutput
             // 
-            txtCmd.BackColor = SystemColors.InfoText;
-            txtCmd.BorderStyle = BorderStyle.FixedSingle;
-            txtCmd.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCmd.ForeColor = SystemColors.Window;
-            txtCmd.Location = new Point(43, 332);
-            txtCmd.Multiline = true;
-            txtCmd.Name = "txtCmd";
-            txtCmd.ReadOnly = true;
-            txtCmd.ScrollBars = ScrollBars.Vertical;
-            txtCmd.Size = new Size(728, 408);
-            txtCmd.TabIndex = 4;
+            txtOutput.BackColor = SystemColors.InfoText;
+            txtOutput.BorderStyle = BorderStyle.FixedSingle;
+            txtOutput.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtOutput.ForeColor = SystemColors.Window;
+            txtOutput.Location = new Point(43, 332);
+            txtOutput.Multiline = true;
+            txtOutput.Name = "txtOutput";
+            txtOutput.ReadOnly = true;
+            txtOutput.ScrollBars = ScrollBars.Vertical;
+            txtOutput.Size = new Size(728, 408);
+            txtOutput.TabIndex = 4;
             // 
             // comboBox1
             // 
@@ -203,15 +203,15 @@
             engine.TabIndex = 6;
             engine.Text = "指定引擎";
             // 
-            // q
+            // btQuestion
             // 
-            q.Location = new Point(726, 189);
-            q.Name = "q";
-            q.Size = new Size(35, 32);
-            q.TabIndex = 7;
-            q.Text = "?";
-            q.UseVisualStyleBackColor = true;
-            q.Click += q_Click;
+            btQuestion.Location = new Point(726, 189);
+            btQuestion.Name = "btQuestion";
+            btQuestion.Size = new Size(35, 32);
+            btQuestion.TabIndex = 7;
+            btQuestion.Text = "?";
+            btQuestion.UseVisualStyleBackColor = true;
+            btQuestion.Click += q_Click;
             // 
             // clear1
             // 
@@ -322,10 +322,10 @@
             Controls.Add(xlsxbut);
             Controls.Add(jsonbut);
             Controls.Add(clear1);
-            Controls.Add(q);
+            Controls.Add(btQuestion);
             Controls.Add(engine);
             Controls.Add(comboBox1);
-            Controls.Add(txtCmd);
+            Controls.Add(txtOutput);
             Controls.Add(savepath);
             Controls.Add(insert);
             Controls.Add(extract);
@@ -333,11 +333,11 @@
             Controls.Add(choose1);
             Controls.Add(choose2);
             Controls.Add(t3);
-            Controls.Add(label4);
+            Controls.Add(lbInput3);
             Controls.Add(t2);
-            Controls.Add(label3);
+            Controls.Add(lbInput2);
             Controls.Add(t1);
-            Controls.Add(Input);
+            Controls.Add(lbInput1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Main";
@@ -351,12 +351,12 @@
         #endregion
 
         //private Label exe;
-        private TextBox txtCmd;
-        private Label Input;
+        private TextBox txtOutput;
+        private Label lbInput1;
         private TextBox t1;
-        private Label label3;
+        private Label lbInput2;
         private TextBox t2;
-        private Label label4;
+        private Label lbInput3;
         private TextBox t3;
         private Button choose2;
         private Button choose3;
@@ -367,7 +367,7 @@
         private Button savepath;
         private ComboBox comboBox1;
         private Label engine;
-        private Button q;
+        private Button btQuestion;
         private Button clear1;
         private RadioButton jsonbut;
         private RadioButton xlsxbut;

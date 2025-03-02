@@ -12,9 +12,9 @@ namespace VNTextPatchGUI
         private string? parameters;
         private string? enginetype;
 
-        private readonly string XlsxName = "script.xlsx";
-
         private readonly string dirpath = AppContext.BaseDirectory;
+
+        private const string XlsxName = "script.xlsx";
         private const string ExePath1 = "bin\\VNTextPatch\\VNTextPatch.exe";
         private const string ExePath2 = "bin\\VNTextPatch\\VNTextPatch.CLI.exe";
         private string exePath;
@@ -111,12 +111,12 @@ namespace VNTextPatchGUI
         {
             if (string.IsNullOrEmpty(ExePath))
             {
-                MessageBox.Show("Î´ÕÒµ½VNTextPatch.exe¡£ÇëÔÚ¸Ã³ÌĞòÄ¿Â¼ÏÂĞÂ½¨binÎÄ¼ş¼Ğ£¬ÔÙ´Óhttps://github.com/arcusmaximus/VNTranslationTools/releases/latestÏÂÔØ×îĞÂrelease£¬×îºó½«VNTextPatchÎÄ¼ş¼Ğ¸´ÖÆµ½binÎÄ¼ş¼Ğ¡£", "Error");
+                MessageBox.Show("æœªæ‰¾åˆ°VNTextPatch.exeã€‚è¯·åœ¨è¯¥ç¨‹åºç›®å½•ä¸‹æ–°å»ºbinæ–‡ä»¶å¤¹ï¼Œå†ä»https://github.com/arcusmaximus/VNTranslationTools/releases/latestä¸‹è½½æœ€æ–°releaseï¼Œæœ€åå°†VNTextPatchæ–‡ä»¶å¤¹å¤åˆ¶åˆ°binæ–‡ä»¶å¤¹ã€‚", "Error");
                 Environment.Exit(-1);
             }
-            this.jsonbut.Checked = true;        //Ä¬ÈÏjsonÄ£Ê½
-            this.comboBox1.SelectedIndex = 0;   //Ä¬ÈÏÑ¡Ôñ¡°×Ô¶¯Ñ¡Ôñ¡±
-            WriteLog($"×¢£ºscript.xlsxÔÚ{dirpath}ÖĞ±£´æ¡£");
+            this.jsonbut.Checked = true;        //é»˜è®¤jsonæ¨¡å¼
+            this.comboBox1.SelectedIndex = 0;   //é»˜è®¤é€‰æ‹©â€œè‡ªåŠ¨é€‰æ‹©â€
+            WriteLog($"æ³¨ï¼šscript.xlsxåœ¨{dirpath}ä¸­ä¿å­˜ã€‚");
         }
 
         private void choose1_Click(object sender, EventArgs e)
@@ -159,7 +159,7 @@ namespace VNTextPatchGUI
             {
                 if (this.t1.Text?.Length == 0 || this.t2.Text?.Length == 0)
                 {
-                    WriteLog("ÇëÈ·±£Ô­ÎÄ¼şÂ·¾¶ºÍÌáÈ¡Â·¾¶ÍêÕû¡£");
+                    WriteLog("è¯·ç¡®ä¿åŸæ–‡ä»¶è·¯å¾„å’Œæå–è·¯å¾„å®Œæ•´ã€‚");
                     return;
                 }
                 parameters = $"extractlocal {enginetype} {this.t1.Text} {this.t2.Text}";
@@ -168,7 +168,7 @@ namespace VNTextPatchGUI
             {
                 if (this.t1.Text?.Length == 0 || this.t2.Text?.Length == 0)
                 {
-                    WriteLog("ÇëÈ·±£Ô­ÎÄ¼şÂ·¾¶ÍêÕû¡£");
+                    WriteLog("è¯·ç¡®ä¿åŸæ–‡ä»¶è·¯å¾„å®Œæ•´ã€‚");
                     return;
                 }
                 parameters = $"extractlocal {enginetype} {this.t1.Text} {XlsxName}";
@@ -200,7 +200,7 @@ namespace VNTextPatchGUI
             {
                 if (this.t1.Text?.Length == 0 || this.t2.Text?.Length == 0 || this.t3.Text?.Length == 0)
                 {
-                    WriteLog("ÇëÈ·±£Ô­ÎÄ¼şÂ·¾¶¡¢ÌáÈ¡Â·¾¶ºÍ·â×°Â·¾¶ÍêÕû¡£");
+                    WriteLog("è¯·ç¡®ä¿åŸæ–‡ä»¶è·¯å¾„ã€æå–è·¯å¾„å’Œå°è£…è·¯å¾„å®Œæ•´ã€‚");
                     return;
                 }
                 parameters = $"insertlocal {enginetype} {this.t1.Text} {this.t2.Text} {this.t3.Text}";
@@ -210,7 +210,7 @@ namespace VNTextPatchGUI
             {
                 if (this.t1.Text?.Length == 0 || this.t3.Text?.Length == 0)
                 {
-                    txtLog.AppendText("ÇëÈ·±£Ô­ÎÄ¼şÂ·¾¶ºÍ·â×°Â·¾¶ÍêÕû¡£");
+                    txtLog.AppendText("è¯·ç¡®ä¿åŸæ–‡ä»¶è·¯å¾„å’Œå°è£…è·¯å¾„å®Œæ•´ã€‚");
                     txtLog.AppendText(Environment.NewLine);
                     return;
                 }
@@ -250,24 +250,24 @@ namespace VNTextPatchGUI
             }
             else
             {
-                WriteLog("ÎŞ·¨Æô¶¯cmd¡£");
+                WriteLog("æ— æ³•å¯åŠ¨cmdã€‚");
             }
             parameters = string.Empty;
             enginetype = string.Empty;
         }
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            txtCmd.AppendText(e.Data + Environment.NewLine);
+            txtOutput.AppendText(e.Data + Environment.NewLine);
         }
 
         private void q_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ä³Ğ©ÒıÇæÓÉÓÚºó×ºÃûÖØ¸´µÈÎÊÌâ£¬ĞèÊÖ¶¯Ö¸¶¨ÒıÇæÃû¡£\nÈç¹û±¨´íextension not supported£¬Çë³¢ÊÔÖ¸¶¨ÒıÇæÃû¡£\nÇë×¢Òâ£¬Èç¹ûÖ¸¶¨ÁË´íÎóµÄÒıÇæ£¬»áµ¼ÖÂÌáÈ¡Ê§°Ü¡£");
+            MessageBox.Show("æŸäº›å¼•æ“ç”±äºåç¼€åé‡å¤ç­‰é—®é¢˜ï¼Œéœ€æ‰‹åŠ¨æŒ‡å®šå¼•æ“åã€‚\nå¦‚æœæŠ¥é”™extension not supportedï¼Œè¯·å°è¯•æŒ‡å®šå¼•æ“åã€‚\nè¯·æ³¨æ„ï¼Œå¦‚æœæŒ‡å®šäº†é”™è¯¯çš„å¼•æ“ï¼Œä¼šå¯¼è‡´æå–å¤±è´¥ã€‚");
         }
 
         private void clear1_Click(object sender, EventArgs e)
         {
-            txtCmd.Clear();
+            txtOutput.Clear();
         }
 
         private void clear2_Click(object sender, EventArgs e)
@@ -279,16 +279,16 @@ namespace VNTextPatchGUI
         {
             Global pa = new()
             {
-                path1 = this.t1.Text,
-                path2 = this.t2.Text,
-                path3 = this.t3.Text,
-                jsonchk = this.jsonbut.Checked,
-                xlsxchk = this.xlsxbut.Checked,
-                engineindex = this.comboBox1.SelectedIndex
+                Path1 = this.t1.Text,
+                Path2 = this.t2.Text,
+                Path3 = this.t3.Text,
+                IsJsonChecked = this.jsonbut.Checked,
+                IsXlsxChecked = this.xlsxbut.Checked,
+                SelectedEngineIndex = this.comboBox1.SelectedIndex
             };
             string jsonOutput = JsonSerializer.Serialize(pa);
             File.WriteAllText(ConfigPath, jsonOutput);
-            txtLog.AppendText("±£´æÅäÖÃ³É¹¦£¡");
+            txtLog.AppendText("ä¿å­˜é…ç½®æˆåŠŸï¼");
             txtLog.AppendText(Environment.NewLine);
         }
 
@@ -296,23 +296,23 @@ namespace VNTextPatchGUI
         {
             if (!File.Exists(ConfigPath))
             {
-                WriteLog("Î´ÕÒµ½ÅäÖÃÎÄ¼ş£¡");
+                WriteLog("æœªæ‰¾åˆ°é…ç½®æ–‡ä»¶ï¼");
                 return;
             }
             string jsonString = File.ReadAllText(ConfigPath);
             Global? pa = JsonSerializer.Deserialize<Global>(jsonString);
             if (pa == null)
             {
-                WriteLog("¶ÁÈ¡ÅäÖÃÊ§°Ü£¡");
+                WriteLog("è¯»å–é…ç½®å¤±è´¥ï¼");
                 return;
             }
-            this.t1.Text = pa.path1;
-            this.t2.Text = pa.path2;
-            this.t3.Text = pa.path3;
-            this.jsonbut.Checked = pa.jsonchk;
-            this.xlsxbut.Checked = pa.xlsxchk;
-            this.comboBox1.SelectedIndex = pa.engineindex;
-            WriteLog("¶ÁÈ¡ÅäÖÃ³É¹¦£¡");
+            this.t1.Text = pa.Path1;
+            this.t2.Text = pa.Path2;
+            this.t3.Text = pa.Path3;
+            this.jsonbut.Checked = pa.IsJsonChecked;
+            this.xlsxbut.Checked = pa.IsXlsxChecked;
+            this.comboBox1.SelectedIndex = pa.SelectedEngineIndex;
+            WriteLog("è¯»å–é…ç½®æˆåŠŸï¼");
         }
 
         private void about_Click(object sender, EventArgs e)
